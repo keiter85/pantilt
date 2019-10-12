@@ -2,8 +2,8 @@
 #define __IMU_H
 
 //#include "Public_StdTypes.h"
-#include "MPU9250.h"
-#include "BMP180.h"
+//#include "MPU9250.h"
+//#include "BMP180.h"
 
 //#define M_PI  (float)3.1415926535
 
