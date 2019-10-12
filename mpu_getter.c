@@ -2,6 +2,7 @@
 #include <signal.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <math.h>
 #include <stdint.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
