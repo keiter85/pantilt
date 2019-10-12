@@ -1,4 +1,5 @@
 #include "IMU.h"
+#include <stdint.h>
 
 //int16_t accel[3], gyro[3];
 float angles[3];

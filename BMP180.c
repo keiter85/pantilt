@@ -1,4 +1,5 @@
 #include "BMP180.h"
+#include <stdint.h>
 
 int16_t AC1, AC2, AC3, B1, B2, MB, MC, MD, _oss;  
 uint16_t AC4, AC5, AC6;
@@ -227,27 +228,27 @@ void BMP180_ReadCalibrationData(void)
 {
 	uint8_t RegBuff[2];
 
-	BMP180_ReadReg(CAL_AC1, 2, RegBuff);
+	BMP180_ReadReg(CAL_AC1, 2, &RegBuff);
   	AC1 = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_AC2, 2, RegBuff);
+  	BMP180_ReadReg(CAL_AC2, 2, &RegBuff);
   	AC2 = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_AC3, 2, RegBuff);
+  	BMP180_ReadReg(CAL_AC3, 2, &RegBuff);
   	AC3 = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_AC4, 2, RegBuff);
+  	BMP180_ReadReg(CAL_AC4, 2, &RegBuff);
   	AC4 = ((uint16_t)RegBuff[0] <<8 | ((uint16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_AC5, 2, RegBuff);
+  	BMP180_ReadReg(CAL_AC5, 2, &RegBuff);
   	AC5 = ((uint16_t)RegBuff[0] <<8 | ((uint16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_AC6, 2, RegBuff);
+  	BMP180_ReadReg(CAL_AC6, 2, &RegBuff);
   	AC6 = ((uint16_t)RegBuff[0] <<8 | ((uint16_t)RegBuff[1])); 
-  	BMP180_ReadReg(CAL_B1, 2, RegBuff);
+  	BMP180_ReadReg(CAL_B1, 2, &RegBuff);
   	B1 = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1])); 
-  	BMP180_ReadReg(CAL_B2, 2, RegBuff);
+  	BMP180_ReadReg(CAL_B2, 2, &RegBuff);
   	B2 = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1])); 
-  	BMP180_ReadReg(CAL_MB, 2, RegBuff);
+  	BMP180_ReadReg(CAL_MB, 2, &RegBuff);
   	MB = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_MC, 2, RegBuff);
+  	BMP180_ReadReg(CAL_MC, 2, &RegBuff);
   	MC = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1]));
-  	BMP180_ReadReg(CAL_MD, 2, RegBuff);
+  	BMP180_ReadReg(CAL_MD, 2, &RegBuff);
   	MD = ((int16_t)RegBuff[0] <<8 | ((int16_t)RegBuff[1])); 
 }
 

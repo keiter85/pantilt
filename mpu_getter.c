@@ -1,7 +1,5 @@
 #include <stdlib.h>
 #include <signal.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <math.h>
 #include <stdint.h>
 #include <wiringPi.h>
@@ -10,8 +8,8 @@
 
 //#include "Public_StdMacros.h"
 //#include "Public_StdTypes.h"
-#include "MPU9250.h"
-#include "BMP180.h"
+//#include "MPU9250.h"
+//#include "BMP180.h"
 #include "IMU.h"
 	
 
@@ -32,7 +30,7 @@ void main(void){
 
     wiringPiSetup();
     signal(SIGINT, intHandler);
-    MPU9250_Init();
+    IMU_Init();
 
     while(1){
         get_10DOF();
