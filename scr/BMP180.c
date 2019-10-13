@@ -52,7 +52,7 @@ void BMP180_WriteReg(uint8_t RegAddr, uint8_t Val)
   * @param  *pBuffer: points to a buffer to which will be writen 
   * @retval None
   */
-void BMP180_ReadReg(uint8_t RegAddr, uint8_t *pBuffer) 
+void BMP180_ReadReg(uint8_t RegAddr,uint8_t Num, uint8_t *pBuffer) 
 {
     uint8_t tempVal = wiringPiI2CReadReg8(BMP180_ADDR, RegAddr);    
   	*pBuffer = &tempVal;

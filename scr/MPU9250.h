@@ -80,7 +80,7 @@ void MPU9250_Init(void);
 void MPU9250_READ_ACCEL(void);
 void MPU9250_READ_GYRO(void);
 void MPU9250_READ_MAG(void);
-int MPU9250_Check(void);
+bool MPU9250_Check(void);
 void MPU9250_CalAvgValue(uint8_t *pIndex, int16_t *pAvgBuffer, int16_t InVal, int32_t *pOutVal);
 void MPU9250_InitGyrOffset(void);
 #endif

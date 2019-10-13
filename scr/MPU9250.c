@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include <stdbool.h>
 #include "MPU9250.h"
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
@@ -7,7 +9,7 @@ int16_t magn[3];
 int16_t accel[3], gyro[3];
 unsigned char BUF[10];
 MPU9250_TypeDef MPU9250_Offset={0};
-MPU9250_TypeDef_Off MPU9250_Magn_Offset={0}
+MPU9250_TypeDef_Off MPU9250_Magn_Offset={0};
 
 bool I2C_WriteOneByte(uint8_t DevAddr, uint8_t RegAddr, uint8_t Data){
     wiringPiI2CWriteReg8(DevAddr, RegAddr, Data);
