@@ -18,7 +18,7 @@ bool I2C_WriteOneByte(uint8_t DevAddr, uint8_t RegAddr, uint8_t Data){
 
 uint8_t I2C_ReadOneByte(uint8_t DevAddr, uint8_t RegAddr){
     uint8_t TempVal = 0;
-    TempVal = wiringPiI2CRedReg8(DevAddr, RegAddr);
+    TempVal = wiringPiI2CReadReg8(DevAddr, RegAddr);
     return TempVal;
 }
 
