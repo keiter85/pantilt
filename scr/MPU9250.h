@@ -74,6 +74,7 @@ typedef struct
 
 extern int16_t magn[3];
 extern int16_t accel[3], gyro[3];
+extern int fd;
 
 
 void MPU9250_Init(void);
