@@ -18,7 +18,7 @@ void intHandler(int dummy) {
 int main(void){
     wiringPiSetup();
     signal(SIGINT, intHandler);
-    MPU9250_Init(void);
+    MPU9250_Init();
     for(;;){
         MPU9250_READ_ACCEL();
         printf("accx: %i, accy: %i, accz: %i", accel[0], accel[1], accel[2]);
