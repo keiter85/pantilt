@@ -17,6 +17,7 @@ void intHandler(int dummy) {
 
 int main(void){
     wiringPiSetup();
+    wiringPiI2CSetup (68);
     signal(SIGINT, intHandler);
     MPU9250_Init();
     for(;;){

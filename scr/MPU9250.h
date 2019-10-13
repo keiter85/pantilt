@@ -42,7 +42,7 @@
 #define	WHO_AM_I		  0x75	//identity of the device
 
 
-#define	GYRO_ADDRESS   0x77	  //Gyro and Accel device address
+#define	GYRO_ADDRESS   0xD0	  //Gyro and Accel device address
 #define MAG_ADDRESS    0x18   //compass device address
 #define ACCEL_ADDRESS  0xD0 
 
@@ -74,6 +74,7 @@ typedef struct
 
 extern int16_t magn[3];
 extern int16_t accel[3], gyro[3];
+extern int fd;
 
 
 void MPU9250_Init(void);
