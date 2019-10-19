@@ -53,6 +53,7 @@ enum
 };
 
 extern int32_t PressureVal, TemperatureVal, AltitudeVal;
+extern int fd;
 extern void CalTemperatureAndPressureAndAltitude(void);
 extern void BMP180_Init(void);
 #endif

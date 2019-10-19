@@ -274,6 +274,7 @@ void BMP180_SetOversample(void)
   */
 void BMP180_Init(void) 
 {  
+	fd = wiringPiI2CSetup(BMP180_ADDR);
   	BMP180_SetOversample();
   	BMP180_ReadCalibrationData();
   	BMP180_PressureAtSeaLevel();
