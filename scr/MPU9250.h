@@ -46,7 +46,7 @@
 #define MAG_ADDRESS    0x18   //compass device address
 #define ACCEL_ADDRESS  0xD0 
 
-#define ADDRESS_AD0_LOW     0xD0 //address pin low (GND), default for InvenSense evaluation board
+#define ADDRESS_AD0_LOW     0x68 //address pin low (GND), default for InvenSense evaluation board
 #define ADDRESS_AD0_HIGH    0xD1 //address pin high (VCC)
 #define DEFAULT_ADDRESS     GYRO_ADDRESS
 #define WHO_AM_I_VAL				0x73 //identity of MPU9250 is 0x71. identity of MPU9255 is 0x73.
