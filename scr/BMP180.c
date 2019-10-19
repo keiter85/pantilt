@@ -8,6 +8,7 @@ int16_t AC1, AC2, AC3, B1, B2, MB, MC, MD, _oss;
 uint16_t AC4, AC5, AC6;
 int32_t B5, UT, UP, Pressure0 = MSLP; 
 int32_t PressureVal = 0, TemperatureVal = 0, AltitudeVal = 0;
+int fd;
 
 
 /**

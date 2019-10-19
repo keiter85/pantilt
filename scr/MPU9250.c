@@ -10,15 +10,16 @@ int16_t accel[3], gyro[3];
 unsigned char BUF[10];
 MPU9250_TypeDef MPU9250_Offset={0};
 MPU9250_TypeDef_Off MPU9250_Magn_Offset={0};
+int fd;
 
 bool I2C_WriteOneByte(uint8_t DevAddr, uint8_t RegAddr, uint8_t Data){
-    wiringPiI2CWriteReg8(DevAddr, RegAddr, Data);
+    wiringPiI2CWriteReg8(fd, RegAddr, Data);
     return true;
 }
 
 uint8_t I2C_ReadOneByte(uint8_t DevAddr, uint8_t RegAddr){
     uint8_t TempVal = 0;
-    TempVal = wiringPiI2CReadReg8(DevAddr, RegAddr);
+    TempVal = wiringPiI2CReadReg8(fd, RegAddr);
     return TempVal;
 }
 
