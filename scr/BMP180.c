@@ -8,7 +8,6 @@ int16_t AC1, AC2, AC3, B1, B2, MB, MC, MD, _oss;
 uint16_t AC4, AC5, AC6;
 int32_t B5, UT, UP, Pressure0 = MSLP; 
 int32_t PressureVal = 0, TemperatureVal = 0, AltitudeVal = 0;
-int fd;
 
 
 /**
@@ -44,7 +43,7 @@ void BMP180_CalAvgValue(uint8_t *pIndex, int32_t *pAvgBuffer, int32_t InVal, int
   */
 void BMP180_WriteReg(uint8_t RegAddr, uint8_t Val) 
 {
-	wiringPiI2CWriteReg8(fd, RegAddr, Val);
+	wiringPiI2CWriteReg8(bmp_fd, RegAddr, Val);
 }
 
 /**
@@ -56,7 +55,7 @@ void BMP180_WriteReg(uint8_t RegAddr, uint8_t Val)
   */
 void BMP180_ReadReg(uint8_t RegAddr,uint8_t Num, uint8_t *pBuffer) 
 {
-    uint8_t tempVal = wiringPiI2CReadReg8(fd, RegAddr);    
+    uint8_t tempVal = wiringPiI2CReadReg8(bmp_fd, RegAddr);    
   	*pBuffer = &tempVal;
 }
 

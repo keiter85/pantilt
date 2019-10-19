@@ -10,16 +10,16 @@ int16_t accel[3], gyro[3];
 unsigned char BUF[10];
 MPU9250_TypeDef MPU9250_Offset={0};
 MPU9250_TypeDef_Off MPU9250_Magn_Offset={0};
-int fd;
+
 
 bool I2C_WriteOneByte(uint8_t DevAddr, uint8_t RegAddr, uint8_t Data){
-    wiringPiI2CWriteReg8(fd, RegAddr, Data);
+    wiringPiI2CWriteReg8(mpu_fd, RegAddr, Data);
     return true;
 }
 
 uint8_t I2C_ReadOneByte(uint8_t DevAddr, uint8_t RegAddr){
     uint8_t TempVal = 0;
-    TempVal = wiringPiI2CReadReg8(fd, RegAddr);
+    TempVal = wiringPiI2CReadReg8(mpu_fd, RegAddr);
     return TempVal;
 }
 
@@ -30,12 +30,12 @@ uint8_t I2C_ReadOneByte(uint8_t DevAddr, uint8_t RegAddr){
   */
 	void MPU9250_Init(void)
 {
-  fd = wiringPiI2CSetup(GYRO_ADDRESS);
-  I2C_WriteOneByte(fd,PWR_MGMT_1, 0x00);
-	I2C_WriteOneByte(fd,SMPLRT_DIV, 0x07);
-	I2C_WriteOneByte(fd,CONFIG, 0x06);
-	I2C_WriteOneByte(fd,GYRO_CONFIG, 0x10);
-	I2C_WriteOneByte(fd,ACCEL_CONFIG, 0x01);
+  mpu_fd = wiringPiI2CSetup(GYRO_ADDRESS);
+  I2C_WriteOneByte(GYRO_ADDRESS,PWR_MGMT_1, 0x00);
+	I2C_WriteOneByte(GYRO_ADDRESS,SMPLRT_DIV, 0x07);
+	I2C_WriteOneByte(GYRO_ADDRESS,CONFIG, 0x06);
+	I2C_WriteOneByte(GYRO_ADDRESS,GYRO_CONFIG, 0x10);
+	I2C_WriteOneByte(GYRO_ADDRESS,ACCEL_CONFIG, 0x01);
 	
 	delay(10);
 	if(MPU9250_Check())
@@ -95,16 +95,16 @@ void MPU9250_READ_GYRO(void)
 	 static int32_t OutBuffer[3] = {0};
 	 static MPU9250_AvgTypeDef MPU9250_Filter[3];
 
-   BUF[0]=I2C_ReadOneByte(fd,GYRO_XOUT_L); 
-   BUF[1]=I2C_ReadOneByte(fd,GYRO_XOUT_H);
+   BUF[0]=I2C_ReadOneByte(GYRO_ADDRESS,GYRO_XOUT_L); 
+   BUF[1]=I2C_ReadOneByte(GYRO_ADDRESS,GYRO_XOUT_H);
    InBuffer[0]=	(BUF[1]<<8)|BUF[0];
    
-   BUF[2]=I2C_ReadOneByte(fd,GYRO_YOUT_L);
-   BUF[3]=I2C_ReadOneByte(fd,GYRO_YOUT_H);
+   BUF[2]=I2C_ReadOneByte(GYRO_ADDRESS,GYRO_YOUT_L);
+   BUF[3]=I2C_ReadOneByte(GYRO_ADDRESS,GYRO_YOUT_H);
    InBuffer[1] = (BUF[3]<<8)|BUF[2];
     
-   BUF[4]=I2C_ReadOneByte(fd,GYRO_ZOUT_L);
-   BUF[5]=I2C_ReadOneByte(fd,GYRO_ZOUT_H);
+   BUF[4]=I2C_ReadOneByte(GYRO_ADDRESS,GYRO_ZOUT_L);
+   BUF[5]=I2C_ReadOneByte(GYRO_ADDRESS,GYRO_ZOUT_H);
    InBuffer[2] = (BUF[5]<<8)|BUF[4];	
 
    for(i = 0; i < 3; i ++)	
@@ -128,7 +128,7 @@ void MPU9250_READ_MAG(void)
 	 static int32_t OutBuffer[3] = {0};
 	 static MPU9250_AvgTypeDef MPU9250_Filter[3];
 
-    I2C_WriteOneByte(fd,0x37,0x02);//turn on Bypass Mode 
+    I2C_WriteOneByte(GYRO_ADDRESS,0x37,0x02);//turn on Bypass Mode 
     delay(10);
     I2C_WriteOneByte(MAG_ADDRESS,0x0A,0x01);	
     delay(10);
