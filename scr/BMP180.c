@@ -43,7 +43,7 @@ void BMP180_CalAvgValue(uint8_t *pIndex, int32_t *pAvgBuffer, int32_t InVal, int
   */
 void BMP180_WriteReg(uint8_t RegAddr, uint8_t Val) 
 {
-	wiringPiI2CWriteReg8(BMP180_ADDR, RegAddr, Val);
+	wiringPiI2CWriteReg8(fd, RegAddr, Val);
 }
 
 /**
@@ -55,7 +55,7 @@ void BMP180_WriteReg(uint8_t RegAddr, uint8_t Val)
   */
 void BMP180_ReadReg(uint8_t RegAddr,uint8_t Num, uint8_t *pBuffer) 
 {
-    uint8_t tempVal = wiringPiI2CReadReg8(BMP180_ADDR, RegAddr);    
+    uint8_t tempVal = wiringPiI2CReadReg8(fd, RegAddr);    
   	*pBuffer = &tempVal;
 }
 
