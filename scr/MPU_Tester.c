@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <signal.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
@@ -23,6 +23,6 @@ int main(void){
     for(;;){
         MPU9250_READ_ACCEL();
         printf("accx: %i, accy: %i, accz: %i", accel[0], accel[1], accel[2]);
-        sleep(500);
+        delay(500);
     }
 }
