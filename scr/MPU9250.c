@@ -1,9 +1,9 @@
-#include <stdint.h>
-#include <stdbool.h>
+//#include <stdint.h>
+//#include <stdbool.h>
 #include "MPU9250.h"
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
-#include "stdio.h"
+//#include "stdio.h"
 
 int16_t magn[3];
 int16_t accel[3], gyro[3];
