@@ -58,6 +58,7 @@ typedef struct
 	int16_t X;
 	int16_t Y;
 	int16_t Z;
+	int mpu_fd;
 }MPU9250_TypeDef;
 
 typedef struct
@@ -75,9 +76,6 @@ typedef struct
 
 extern int16_t magn[3];
 extern int16_t accel[3], gyro[3];
-
-int mpu_fd;
-
 
 
 void MPU9250_Init(void);
