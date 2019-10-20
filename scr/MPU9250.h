@@ -42,7 +42,7 @@
 #define	WHO_AM_I		  0x75	//identity of the device
 
 
-#define	GYRO_ADDRESS   0xD0	  //Gyro and Accel device address
+#define	GYRO_ADDRESS   0x68	  //Gyro and Accel device address
 #define MAG_ADDRESS    0x18   //compass device address
 #define ACCEL_ADDRESS  0xD0 
 
