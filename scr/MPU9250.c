@@ -13,13 +13,13 @@ MPU9250_TypeDef_Off MPU9250_Magn_Offset={0};
 
 
 bool I2C_WriteOneByte(uint8_t DevAddr, uint8_t RegAddr, uint8_t Data){
-    wiringPiI2CWriteReg8(mpu_fd, RegAddr, Data);
+    wiringPiI2CWriteReg8(MPU9250_Offset.mpu_fd, RegAddr, Data);
     return true;
 }
 
 uint8_t I2C_ReadOneByte(uint8_t DevAddr, uint8_t RegAddr){
     uint8_t TempVal = 0;
-    TempVal = wiringPiI2CReadReg8(mpu_fd, RegAddr);
+    TempVal = wiringPiI2CReadReg8(MPU9250_Offset.mpu_fd, RegAddr);
     return TempVal;
 }
 
@@ -30,7 +30,7 @@ uint8_t I2C_ReadOneByte(uint8_t DevAddr, uint8_t RegAddr){
   */
 	void MPU9250_Init(void)
 {
-  mpu_fd = wiringPiI2CSetup(GYRO_ADDRESS);
+  MPU9250_Offset.mpu_fd = wiringPiI2CSetup(GYRO_ADDRESS);
   I2C_WriteOneByte(GYRO_ADDRESS,PWR_MGMT_1, 0x00);
 	I2C_WriteOneByte(GYRO_ADDRESS,SMPLRT_DIV, 0x07);
 	I2C_WriteOneByte(GYRO_ADDRESS,CONFIG, 0x06);
