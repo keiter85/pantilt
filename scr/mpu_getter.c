@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
@@ -39,7 +39,7 @@ void main(void){
         printf("magx: %i --magy %i --magz %i", magn[0], magn[1], magn[2]);
         printf("accx: %i --accy %i --accz %i", accel[0], accel[1], accel[2]);
         printf("gyrx: %i --gyry %i --gyrz %i", gyro[0], gyro[1], gyro[2]);
-        //sleep(500);
+        delay(500);
 
     }
 

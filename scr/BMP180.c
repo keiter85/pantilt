@@ -1,6 +1,6 @@
 
 #include <stdint.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include "BMP180.h"
 
 
@@ -177,10 +177,10 @@ void BMP180_LocalpressureAvg(int32_t *pVal)
 	for(i = 0; i < 5; i ++)
 	{
 	  	BMP180_StartTemperatureMeasurement();
-		sleep(324); //4.5ms   324
+		delay(324); //4.5ms   324
 		BMP180_ReadUncompensatedTemperature();
 		BMP180_StartPressureMeasurement();
-		sleep(540);//7.5ms    540
+		delay(540);//7.5ms    540
 		BMP180_ReadUncompensatedPressure();
 		BMP180_CalculateTruePressure(&PressureVal);
 		BMP180_CalculateTrueTemperature(&TemperatureVal);
@@ -296,14 +296,14 @@ void CalTemperatureAndPressureAndAltitude(void)
 	{
 		case START_TEMPERATURE_MEASUREMENT:
 			BMP180_StartTemperatureMeasurement();
-			sleep(5); //4.5ms
+			delay(5); //4.5ms
 			State = READ_UT_AND_START_PRESSURE_MEASUREMENT;
 			break;
 			
 		case READ_UT_AND_START_PRESSURE_MEASUREMENT:
 			BMP180_ReadUncompensatedTemperature();
 			BMP180_StartPressureMeasurement();
-			sleep(10);//7.5ms
+			delay(10);//7.5ms
 			State = READ_UP_CAL_TRUE_PRESSURE_TEMPERATURE;
 			break;
 			
