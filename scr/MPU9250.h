@@ -52,6 +52,7 @@
 #define WHO_AM_I_VAL				0x73 //identity of MPU9250 is 0x71. identity of MPU9255 is 0x73.
 
 
+
 typedef struct
 {
 	int16_t X;
@@ -74,7 +75,9 @@ typedef struct
 
 extern int16_t magn[3];
 extern int16_t accel[3], gyro[3];
+
 int mpu_fd;
+
 
 
 void MPU9250_Init(void);
