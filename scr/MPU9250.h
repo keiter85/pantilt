@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <wiringPi.h>
+//#include <wiringPi.h>
 #include <wiringPiI2C.h>
 
 // define MPU9250 register address
