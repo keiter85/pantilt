@@ -5,8 +5,9 @@
 //#include <stdbool.h>
 //#include <unistd.h>
 #include <signal.h>
-#include <wiringPi.h>
-#include <wiringPiI2C.h>
+#include <stdlib.h>
+//#include <wiringPi.h>
+//#include <wiringPiI2C.h>
 
 #include "MPU9250.h"
 
