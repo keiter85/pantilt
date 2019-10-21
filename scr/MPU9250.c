@@ -1,5 +1,4 @@
-#include <stdint.h>
-#include <stdbool.h>
+
 #include "MPU9250.h"
 #include <wiringPi.h>
 #include <wiringPiI2C.h>

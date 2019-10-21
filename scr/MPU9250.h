@@ -4,6 +4,8 @@
 //#include "Public_StdTypes.h"
 //#include "System.h"
 //#include "IMU.h"
+#include <stdint.h>
+#include <stdbool.h>
 
 // define MPU9250 register address
 //****************************************
