@@ -4,6 +4,7 @@
 //#include "Public_StdTypes.h"
 //#include "System.h"
 //#include "IMU.h"
+#include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <wiringPi.h>
