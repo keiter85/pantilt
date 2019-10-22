@@ -4,7 +4,7 @@
 //#include <unistd.h>
 #include <signal.h>
 //#include <stdlib.h>
-//#include <wiringPi.h>
+#include <wiringPi.h>
 //#include <wiringPiI2C.h>
 
 //#include "MPU9250.h"
@@ -17,7 +17,7 @@ void intHandler(int dummy) {
 }
 
 int main(void){
-    //wiringPiSetup();
+    wiringPiSetup();
     //wiringPiI2CSetup (68);
     //signal(SIGINT, intHandler);
     //MPU9250_Init();
