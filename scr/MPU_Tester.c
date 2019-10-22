@@ -26,7 +26,7 @@ int main(void){
         int a = 1;
         int b = 2;
         int c = 3;
-        printf("accx: %i, accy: %i, accz: %i", a, b, c);
+        printf("accx: %d, accy: %d, accz: %d", a, b, c);
         delay(500);
     }
 }
